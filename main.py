@@ -1,17 +1,14 @@
-from verify_aws_validity import is_json, is_aws_json, check_asteriks
+from verify_aws_validity import is_aws_json, check_asterisk
 import sys
 
 if __name__ == '__main__':
     path = input("Enter the path to the file: ")
-    if is_json(path) == "ERROR":
-        print("This is not a valid json file")
-        sys.exit(1)
-    elif is_json(path) == "FILE NOT EXIST":
-        print("File not exist")
-        sys.exit(1)
     res = is_aws_json(path)
     if res == "INVALID EFFECT":
         print("There is invalid Effect field")
+        sys.exit(1)
+    elif res == "NOT A JSON FILE":
+        print("This is not a json file")
         sys.exit(1)
     elif res == "INVALID VERSION":
         print("There is invalid Version field")
@@ -35,14 +32,9 @@ if __name__ == '__main__':
         print("File not exist")
         sys.exit(1)
 
-    res = check_asteriks(path)
-    if res == "JSON ERROR":
-        print("This is not a valid json file")
-        sys.exit(1)
-    elif res == "FILE NOT EXIST":
-        print("File not exist")
-        sys.exit(1)
-    elif res == True:
+    res = check_asterisk(path)
+
+    if res == True:
         print("There are not any single asterisk in the Resource field")
     else:
         print("There is a single asterisk in the Resource field")

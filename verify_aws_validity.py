@@ -1,27 +1,32 @@
 import json
+import os
 import re
 
 
-def is_json(file_path):
-    try:
-        with open(file_path, 'r') as f:
-            json.load(f)
-        return True
-
-    except FileNotFoundError as e:
-        return "FILE NOT EXIST"
-    except json.JSONDecodeError as e:
-        return "JSON ERROR"
+# Check if the keys are valid
+def check_keys(data):
+    valid_keys = ["PolicyName", "PolicyDocument", "Version", "Statement", "Action", "Effect", "Resource", "Sid",
+                  "Principal",
+                  "Condition"]
+    for key in data.keys():
+        if key not in valid_keys:
+            return False
+    return True
 
 
 def is_aws_json(file_path):
-    check = is_json(file_path)
-    if check == "FILE NOT EXIST" or check == "JSON ERROR":
-        return check
-
+    _, file_extension = os.path.splitext(file_path)
+    if file_extension != ".json":
+        return "NOT A JSON FILE"
     try:
         with open(file_path, 'r') as file:
-            data = json.load(file)
+            try:
+                data = json.load(file)
+            except json.JSONDecodeError as e:
+                return "INVALID JSON FORMAT"
+
+            if not check_keys(data):
+                return "INVALID JSON FORMAT"
 
             policy_name = data["PolicyName"]
             policy_document = data["PolicyDocument"]
@@ -31,9 +36,6 @@ def is_aws_json(file_path):
 
             version = policy_document["Version"]
             statement = policy_document["Statement"]
-
-            if version is None or statement is None:
-                return "NO VERSION OR STATEMENT FIELD"
 
             if version not in ["2012-10-17", "2008-10-17"]:
                 return "INVALID VERSION"
@@ -55,7 +57,7 @@ def is_aws_json(file_path):
         return "INVALID JSON FORMAT"
 
 
-def check_asteriks(file_path):
+def check_asterisk(file_path):
     res = is_aws_json(file_path)
     if res != True:
         return res
@@ -63,8 +65,13 @@ def check_asteriks(file_path):
         with open(file_path, 'r') as file:
             data = json.load(file)
             for key in data["PolicyDocument"]["Statement"]:  # we know that this key exists
-                if key["Resource"] == "*":
-                    return False
+                if not isinstance(key["Resource"], list):
+                    if key["Resource"] == "*":
+                        return False
+                else:
+                    for resource in key["Resource"]:
+                        if resource == "*":
+                            return False
             return True
     except FileExistsError as e:
-        return "FILE NOT EXIST"
+        return "FILE NOT EXIST"  # this should never happen

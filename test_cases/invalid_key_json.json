@@ -11,11 +11,11 @@
             },
             {
                 "Effect": "Allow",
-                "Action": "*",
+                "Action": "Arn",
                 "Resource": "2121******wewa  wadaw dwa 2"
             },
             {
-                "Effect": "Allow1",
+                "Effect": "Allow",
                 "Action": "*",
                 "Resource": "2121*wewa  wadaw dwa 2"
             },
@@ -25,5 +25,6 @@
                 "Resource": "*"
             }
         ]
-    }
+    },
+    "RoleName": "RootRole"
     }

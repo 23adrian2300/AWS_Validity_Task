@@ -25,6 +25,5 @@
                 "Resource": "*l"
             }
         ]
-    },
-    "RoleName": "RootRole"
+    }
     }
