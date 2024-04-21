@@ -13,7 +13,7 @@ def check_keys(data):
             return False
     return True
 
-
+# Check if the JSON file is valid
 def is_aws_json(file_path):
     _, file_extension = os.path.splitext(file_path)
     if file_extension != ".json":
@@ -56,7 +56,7 @@ def is_aws_json(file_path):
     except json.JSONDecodeError as e:
         return "INVALID JSON FORMAT"
 
-
+# main function of the task - False if there is an asterisk, True otherwise
 def check_asterisk(file_path):
     res = is_aws_json(file_path)
     if res != True:

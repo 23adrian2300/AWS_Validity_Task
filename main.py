@@ -1,6 +1,11 @@
 from verify_aws_validity import is_aws_json, check_asterisk
 import sys
 
+"""
+This is a file with presentation of verify_aws_validity.py functions that checks if the file is a valid AWS JSON file and if there is a single asterisk in the Resource field.
+The main funtion is in verify_aws_validity.py file and name of it is check_asterisk. This function returns False if there is an asterisk, True otherwise.
+"""
+
 if __name__ == '__main__':
     path = input("Enter the path to the file: ")
     res = is_aws_json(path)
