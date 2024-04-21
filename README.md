@@ -5,7 +5,13 @@ This is a solution to a recruitment task for Remility company.
 Write a method verifying the input JSON data. Input data format is defined as AWS::IAM::Role Policy - definition and example (AWS IAM Role JSON definition and example). Input JSON might be read from a file. 
 Method shall return logical false if an input JSON Resource field contains a single asterisk and true in any other case. 
 
+## Requirements
+- Python 3.x
+- Terminal
+
 ## How to run
+All commands should be entered using the terminal.
+
 First, you need to download the repository with the solution using the command:
 
 `git clone https://github.com/23adrian2300/AWS_Validity_Task.git`
@@ -50,3 +56,11 @@ In that case, we return False. In any other case, for example: '**', 'p', '121',
     }
 }
 ```
+
+## Project Structure
+
+Files:
+- main.py - the main file utilizing functions from verify_aws_validity.py
+- verify_aws_validity.py - this file contains functions to check validiity of JSON and check asterisk in file
+- test_functions.py - file with tests for all functions from verify_aws_validity
+- test_cases - directory with various JSON file variants for testing
