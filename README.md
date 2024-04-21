@@ -14,9 +14,6 @@ Then, you need to navigate to the folder with the downloaded code:
 
 `cd aws_checker`
 
-To install the required libraries, you need to use:
-
-`pip install -t requirements.txt`
 
 To run the main file, you need to use:
 
