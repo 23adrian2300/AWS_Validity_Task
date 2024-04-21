@@ -1,4 +1,4 @@
-# AWS::IAM:ROLE Policy Checker
+# AWS::IAM::ROLE Policy Checker
 This is a solution to a recruitment task for Remility company.
 
 ## Task
