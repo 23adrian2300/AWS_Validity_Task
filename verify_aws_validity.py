@@ -25,7 +25,7 @@ def is_aws_json(file_path):
 
             policy_name = data["PolicyName"]
             policy_document = data["PolicyDocument"]
-            role = data["RoleName"]
+
             if 1 < len(policy_name) > 128 or not re.fullmatch(r"[\w+=,.@-]+", policy_name):
                 return "INVALID POLICY NAME"
 
