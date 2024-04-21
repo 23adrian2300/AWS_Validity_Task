@@ -23,6 +23,13 @@ To run the test, use the following command:
 
 `python test_functions.py`
 
+## How it works
+
+
+First, the user provides a file path. Then, we first check if it is a .json file, and then if it is a valid JSON. Next, we verify if it is an AWS::IAM::Role Policy by checking if the appropriate keys are present. Additionally, we check cases such as the length and pattern of the name.
+If we pass the verification successfully, we proceed to the main function, which, knowing that it deals with valid JSON, checks if there is only a single '*' character in the "Resource" field. 
+In that case, we return False. In any other case, for example: '**', 'p', '121', we return True.
+
 ## Valid JSON Format
 ```json
 {
