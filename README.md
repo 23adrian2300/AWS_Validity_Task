@@ -27,7 +27,8 @@ To run the test, use the following command:
 `python test_functions.py`
 
 ## Valid JSON Format
-```json{
+```json
+{
     "PolicyName": "root",
     "PolicyDocument": {
         "Version": "2012-10-17",
@@ -43,4 +44,5 @@ To run the test, use the following command:
             }
         ]
     }
-}`
+}
+```
