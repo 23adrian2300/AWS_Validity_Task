@@ -12,7 +12,7 @@ First, you need to download the repository with the solution using the command:
 
 Then, you need to navigate to the folder with the downloaded code:
 
-`cd aws_checker`
+`cd AWS_Validity_Task`
 
 
 To run the main file, you need to use:
