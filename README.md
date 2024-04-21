@@ -64,3 +64,11 @@ Files:
 - verify_aws_validity.py - this file contains functions to check validiity of JSON and check asterisk in file
 - test_functions.py - file with tests for all functions from verify_aws_validity
 - test_cases - directory with various JSON file variants for testing
+
+Edge cases:
+
+- checking the length of the policy name
+- verifying if it contains only a single asterisk
+- the file cannot contain incorrect keys
+- distinguishing between a regular string and an array of strings in "Resource"
+- True for an empty Resource"
