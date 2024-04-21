@@ -8,7 +8,7 @@ Method shall return logical false if an input JSON Resource field contains a sin
 ## How to run
 First, you need to download the repository with the solution using the command:
 
-`git clone https://github.com/23adrian2300/aws_checker](https://github.com/23adrian2300/AWS_Validity_Task.git`
+`git clone https://github.com/23adrian2300/AWS_Validity_Task.git`
 
 Then, you need to navigate to the folder with the downloaded code:
 
