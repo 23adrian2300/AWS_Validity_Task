@@ -1,0 +1,30 @@
+{
+
+    "PolicyName": "root",
+    "PolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "1**2123312"
+            },
+            {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "2121******wewa  wadaw dwa 2"
+            },
+            {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "2121*wewa  wada****w dwa 2"
+            },
+            {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "**"
+            }
+        ]
+    },
+    "RoleName": "RootRole"
+    }
